@@ -1,7 +1,7 @@
 name: Simulação CI/CD
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
@@ -24,7 +24,8 @@ jobs:
           sleep 2
           echo "✅ Testes passaram"
 
-      - name: Simular deploy
+      - name: Simular deploy (somente após merge)
+        if: github.event.pull_request.merged == true
         run: |
           echo "🚀 Fazendo deploy da Lambda..."
           sleep 2
