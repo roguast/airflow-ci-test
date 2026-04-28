@@ -1,0 +1,20 @@
+name: CD - Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Deploy
+        run: |
+          echo "🚀 Deploy após merge na main"
+          sleep 2
+          echo "✅ Deploy concluído"
