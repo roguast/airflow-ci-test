@@ -1,0 +1,31 @@
+name: Simulação CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Simular build
+        run: |
+          echo "🔧 Construindo projeto..."
+          sleep 2
+
+      - name: Simular testes
+        run: |
+          echo "🧪 Rodando testes..."
+          sleep 2
+          echo "✅ Testes passaram"
+
+      - name: Simular deploy
+        run: |
+          echo "🚀 Fazendo deploy da Lambda..."
+          sleep 2
+          echo "✅ Deploy finalizado com sucesso"
